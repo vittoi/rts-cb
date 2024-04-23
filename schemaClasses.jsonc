@@ -1,0 +1,79 @@
+{
+    "UnidadeBase":{
+        "Id": 0,
+        "IdInstancia": 0,
+        "levelRequerido":1,
+        "Vida":0,
+        "Descricao": "Texto",
+        "Nome": "Nome1",
+        "Ataque": 0,
+        "ImagemLoja": "Caminho",
+        "Prefab": "Caminho",
+        "Estado": "Batalha, Ocioso, Produzindo",//Cada estado dispara um conjunto de acoes
+        "Recursos": [{"IdRecurso1":"IntqtdRecurso"},{"IdRecurso1": "IntqtdRecurso"} ],
+        "TempoConstrucao": "Horas"
+    },
+    "UnidadeMovel":{//filho de UnidadeBase
+        "Velocidade": 0,
+        "Terreno": "Terra"//Tem penalidade fora desse terreno e beneficio nesse (Pode ser so de movimento)
+    },
+    "UnidadeEstatica":{//filho de UnidadeBase
+        "Alvejavel": true,
+        "Terreno": "Ar, Terra, Agua, Fogo",
+        "qtdMaxCidadao":0,
+        "ProfissoesRequeridas": ["IdInstancia1", "IdInstancia2", "IdInstancia3"],
+        "CidadaoAlocado":[]
+    },
+    //Algo tipo rua, ou estabulo, q nao gera um recurso, mas pode guardar recurso ou servir para definir terreno
+    "UnidadeUtilitario":{//filho de UnidadeEstatica
+        "qtdMax": 0,
+        "Recurso": "Texto",
+        "TaxaPorMin": 0
+    },
+    "UnidadeProcesso":{//filho de UnidadeEstatica
+        "Entrada": "Pessoa",
+        "Saida": "Mago",
+        "TempoProcesso":"1h" // Se a proficiencia do professor for maior, sai mais rapido
+    },
+    "Cidadao":{//filho de unidademovel
+        "felicidade":0,//de 0 a 100
+        "experiencia":[],//experiencia em cada profissao
+        "Raca": 0, //id da Raça, nao influencia em nada alem de aparencia animacao e tals
+        "Saude": 0
+    },
+    "Transportes":{//filho de unidademovel
+        "recurso": "idRecurso",
+        "qtdMax": 0,
+        "MinParaInicio": 0
+    },
+    "Recursos":{
+        "Id":0,
+        "nome": "nome do recurso",
+        "Descricao":"Texto"
+    },
+    "Profissao":{
+        "Id":0,
+        "Nome": "",
+        "Descricao":"Texto"
+
+    },
+    "Raca":{
+        "Id":0,
+        "Nome": "Alado",
+        "Descricao":"Texto",
+        "animacoes":[],
+        "prefab":""
+    },
+    "Mundo":{//Majoritariamente usado em memoria, mas talvez seja um bom ponto pro save
+        "Id":0,
+        "level": 1,
+        "nome":"Nome do Mundo",
+        "tempo":"horas",//Tempo de jogo decorrido
+        "taxas":[],//taxa de producao de cada recurso
+        "recursos":[],//QtdTotal de cada recurso (Pessoa vai ser um recurso?)
+        "Capacidades":[],//QtdMaxima de cada recurso,
+        "Unidades":[], //Todas unidades que foram criadas
+        "Felicidade": 0 //media de felicidade de todo cidadao
+        
+    }
+}
